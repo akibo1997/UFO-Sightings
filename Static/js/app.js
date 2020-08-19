@@ -25,12 +25,12 @@ var filterbutton=d3.select("#filter-btn");
 filterbutton.on("click",function(){
     var datafiltered=ufos
 
-    // set up filters for each column header
-    var shapeinput=d3.select("#Shape").property("value").tolowercase().trim()
-    var stateinput=d3.select("#State").property("value").tolowercase().trim()
-    var countryinput=d3.select("#Country").property("value").tolowercase().trim()
-    var dateinput=d3.select("#Date").property("value").tolowercase().trim()
-    var cityinput=d3.select("#City").property("value").tolowercase().trim()
+    // Set up filters for each column header
+    var shapeinput=d3.select("#shape").property("value").trim()
+    var stateinput=d3.select("#state").property("value").trim()
+    var countryinput=d3.select("#country").property("value").trim()
+    var dateinput=d3.select("#datetime").property("value").trim()
+    var cityinput=d3.select("#city").property("value").trim()
 
     // Input values into a dictionary
     var userdictionary = {
@@ -53,7 +53,7 @@ console.log(userdictionary);
     console.log("inputvalue :",userdictionary)
 
     datafiltered = datafiltered.filter(row => {
-        return Object.entries(dictUser).every(criteria => {
+        return Object.entries(userdictionary).every(criteria => {
           const key = criteria[0]
           const value = criteria[1]
           return row[key] === value
