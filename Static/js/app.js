@@ -10,7 +10,9 @@ var tbody = d3.select("tbody")
 
 ufos.forEach((ufodata) => {
     var row = tbody.append("tr");
-    Object.defineProperties(ufodata).forEach(([key,value]) => {
+// Print out the data so that you can see the loop in the console
+    console.log(ufodata)
+    Object.values(ufodata).forEach((value) => {
         var cell =row.append("td")
         cell.text(value);
     });
