@@ -5,15 +5,17 @@ var tableData = data;
 var ufos=data;
 
 // Loop through the data and append the information to a table
-    
-ufos.forEach(ufodata) => {
+
+var tbody = d3.select("tbody")
+
+ufos.forEach((ufodata) => {
     var row = tbody.append("tr");
     Object.defineProperties(ufodata).forEach(([key,value]) => {
         var cell =row.append("td")
         cell.text(value);
     });
 
-};
+});
 
 // Create a filter for the data with an Event listener
 
@@ -30,13 +32,13 @@ filterbutton.on("click",function(){
 
     // Input values into a dictionary
     var userdictionary = {
-        city:cityinput
-        datetime:dateinput
-        country:countryinput
-        state:stateinput
+        city:cityinput,
+        datetime:dateinput,
+        country:countryinput,
+        state:stateinput,
         shape:shapeinput
     } 
-/ var userinput =getelement()* /
+
 
 Object.entries(userdictionary).forEach(([key,value]) => {
     if (value === ""){
@@ -74,4 +76,4 @@ console.log(userdictionary);
 
 }
 
-)};
+);
